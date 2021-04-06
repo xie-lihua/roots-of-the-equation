@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int main() {
+
+	double a = 0, b = 0, c = 0;
+	double x1 = 0, x2 = 0;
+	cout << "请依次输入三个系数 a，b,c \n";
+	cin >> a >> b >> c;
+  
+	if (a == 0) {
+		cout << "方程的根为 ：" << -c / b;
+	}
+	  else {
+		int flag = 0;
+		double s = b * b - 4 * a * c;
+    
+		if (s > 0) {
+			x1 = (-b + sqrt(s)) / 2 / a;
+			x2 = (-b - sqrt(s)) / 2 / a;
+		}
+		else if (s == 0)
+			x1 = x2 = -b / 2 / a;
+		else {
+			flag = 1;
+			cout << "方程无实数根";
+		}
+    
+		if (flag == 0)
+			cout << "方程的根为 x1= " << x1 << "  x2=" << x2;
+	}
+	return 0;
+}
