@@ -2,14 +2,14 @@
 #include <math.h>
 using namespace std;
 
-//Éè¼ÆµãÀà
+//è®¾è®¡ç‚¹ç±»
 class Point {
 private:
 	int x = 0;
 	int y = 0;
 public:
 	void setX() {
-		cout << "ÇëÊäÈëµãµÄºá×ø±ê :";
+		cout << "è¯·è¾“å…¥ç‚¹çš„æ¨ªåæ ‡ :";
 		int x;
 		cin >> x;
 		this->x = x;
@@ -18,7 +18,7 @@ public:
 		return x;
 	}
 	void setY() {
-		cout << "ÇëÊäÈëµãµÄ×İ×ø±ê :";
+		cout << "è¯·è¾“å…¥ç‚¹çš„çºµåæ ‡ :";
 		int y = 0;
 		cin >> y;
 		this->y = y;
@@ -27,70 +27,70 @@ public:
 	}
 	void issame(Point& a) {
 		if (a.getX() == x && a.getY() == y)
-			cout << "¶şÕßÎªÍ¬Ò»¸öµã" << endl;
+			cout << "äºŒè€…ä¸ºåŒä¸€ä¸ªç‚¹" << endl;
 		else
-			cout << "¶şÕß²»ÊÇÍ¬Ò»¸öµã" << endl;
+			cout << "äºŒè€…ä¸æ˜¯åŒä¸€ä¸ªç‚¹" << endl;
 	}
 	void Distance(Point& a) {
 
 		double s = 0;
 		s= sqrt((a.getX() - x) * (a.getX() - x) + (a.getY() - y) * (a.getY() - y));
-		cout << "\nÁ½µã¼ä¾àÀëÎª "<< s << endl;
+		cout << "\nä¸¤ç‚¹é—´è·ç¦»ä¸º "<< s << endl;
 	}
 };
 
-//Éè¼Æ¾ØĞÎÀà
+//è®¾è®¡çŸ©å½¢ç±»
 class Rectg {
 
 private:
 	Point a;
 	Point b;
 public:
-	//ÊäÈëÁ½¸öµã¹¹Ôì¾ØĞÎ
+	//è¾“å…¥ä¸¤ä¸ªç‚¹æ„é€ çŸ©å½¢
 		void setJu(Point p1,Point p2) {
 		a = p1; b = p2;
 	}
 
-	//	»ñÈ¡¶ÔÏóĞÅÏ¢
+	//	è·å–å¯¹è±¡ä¿¡æ¯
 	Point getJu() {
 		return a,b;
 	}
 
-	//abs ºÍfabs µÃµ½¾ø¶ÔÖµÇó±ß³¤
+	//abs å’Œfabs å¾—åˆ°ç»å¯¹å€¼æ±‚è¾¹é•¿
 	void calC() {
 		int c = (abs(a.getX() -b.getX()) + abs(a.getY() -b.getY())) * 2;
-		cout << "ÖÜ³¤Îª £º" << c << endl;;
+		cout << "å‘¨é•¿ä¸º ï¼š" << c << endl;;
 	}
 	void calS() {
 		double s = fabs(a.getX() - b.getX()) * fabs(a.getY() -b.getY());
-		cout << "Ãæ»ıÎª£º" << s << endl;
+		cout << "é¢ç§¯ä¸ºï¼š" << s << endl;
 
 	}
 };
 
 int main() {
-	//ÊµÀı»¯Á½¸öµã
+	//å®ä¾‹åŒ–ä¸¤ä¸ªç‚¹
 	Point p1, p2;
 
-	cout << "ÇëÊäÈëµÚÒ»¸öµãµÄ×ø±ê" << endl;
+	cout << "è¯·è¾“å…¥ç¬¬ä¸€ä¸ªç‚¹çš„åæ ‡" << endl;
 	p1.setX();
 	p1.setY();
-	cout << "ÇëÊäÈëµÚ¶ş¸öµãµÄ×ø±ê" << endl;
+	cout << "è¯·è¾“å…¥ç¬¬äºŒä¸ªç‚¹çš„åæ ‡" << endl;
 	p2.setX();
 	p2.setY();
 
-	//ÅĞ¶ÏÁ½µãÊÇ·ñÖØ»Ø
+	//åˆ¤æ–­ä¸¤ç‚¹æ˜¯å¦é‡å›
 	p1.issame(p2);
 
-	//¼ÆËã¾àÀë
+	//è®¡ç®—è·ç¦»
 	p2.Distance(p1);
 	
-	// ÓÉÁ½¸öµã¶¨Òå¾ØĞÎfang
+	// ç”±ä¸¤ä¸ªç‚¹å®šä¹‰çŸ©å½¢fang
 	Rectg fang;
-	//¸øfang ¸³ÖµÁ½¸öµã
+	//ç»™fang èµ‹å€¼ä¸¤ä¸ªç‚¹
 	fang.setJu(p1, p2);
 
-	//¼ÆËãÖÜ³¤ºÍÃæ»ı²¢´òÓ¡
+	//è®¡ç®—å‘¨é•¿å’Œé¢ç§¯å¹¶æ‰“å°
 	fang.calC();
 	fang.calS();
 
