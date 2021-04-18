@@ -6,7 +6,8 @@ using namespace std;
 //	 a不可能等于2，因为后面两个必为奇数，其和必定是偶数，合数
 
 //三元组编号bn
-int bn = 1;
+int an[50][4];
+int bn = 0;
 //判断质数
 int isprime(int a) {
 	int  sq = sqrt(a)+1;
@@ -69,7 +70,11 @@ public:
 
 			if (si == 1)
 			{
-				cout << "\n三元组编号" << bn++ << "\t" << a << "\t" << b << "\t" << c << endl;
+				an[bn][0] = a;
+				an[bn][1] = b;
+				an[bn][2] = c;
+				an[bn][3] = s;
+				bn++;
 				c++;
 			}
 			else {
@@ -83,9 +88,10 @@ public:
 			primeb();
 			goto flag;
 		}
-		 //单个a与所有的b及c完成，a值加2，挑选出全部符合的a
-		 //至此方法完成，结束。
+		
 		a+=2;
+		//单个a与所有的b及c完成，a值加2，挑选出全部符合的a
+		 //至此方法完成，结束。
 	}
 
 };
@@ -99,7 +105,10 @@ int main() {
 		zhishu.primeb();
 		zhishu.primecs();
 	}
-
+	for (int i = 0; i < bn; i++) {
+		cout <<"第"<<i + 1 << "组\t" << an[i][0] << "\t" << an[i][1]
+			<< "\t" << an[i][2] << "\t" << an[i][3] << endl;
+	}
 	return 0;
 }
 //  2021/4/14. xie-lihua
